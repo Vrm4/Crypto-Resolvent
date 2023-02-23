@@ -6,12 +6,14 @@ const axios = require('axios')
 app.use(express.json())
 app.use(express.static('public'))
 
+const apiKey = '68fc8f78-8978-4067-8d00-026993ad8422'
+
 const slugPromise = async(slug) => { 
-    const ApiUrl = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?CMC_PRO_API_KEY=68fc8f78-8978-4067-8d00-026993ad8422&slug=${slug.toLowerCase()}`
+    const ApiUrl = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?CMC_PRO_API_KEY=${apiKey}&slug=${slug.toLowerCase()}`
     return await axios.get(ApiUrl)
 }
 const symbolPromise = async(symbol) =>{
-    const ApiUrl = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?CMC_PRO_API_KEY=68fc8f78-8978-4067-8d00-026993ad8422&symbol=${symbol}`
+    const ApiUrl = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?CMC_PRO_API_KEY=${apiKey}&symbol=${symbol}`
     return await axios.get(ApiUrl)
 }
 
