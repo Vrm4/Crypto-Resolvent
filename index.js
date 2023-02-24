@@ -6,7 +6,7 @@ const axios = require('axios')
 app.use(express.json())
 app.use(express.static('public'))
 
-const apiKey = '68fc8f78-8978-4067-8d00-026993ad8422'
+const apiKey = 'YOUR API KEY PLS VISIT https://pro.coinmarketcap.com'
 
 const slugPromise = async(slug) => { 
     const ApiUrl = `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?CMC_PRO_API_KEY=${apiKey}&slug=${slug.toLowerCase()}`

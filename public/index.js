@@ -7,6 +7,7 @@ function Commas(x) {
 }
 document.addEventListener('submit' , ( e )  =>{
     e.preventDefault()
+    content.style.animation = 'opening 0.6s ease'
     content.style.display = 'block'
     content.innerHTML = `
     <div class="loader-wrapper">
@@ -17,6 +18,9 @@ document.addEventListener('submit' , ( e )  =>{
         </div>
     </div>
     `
+    setTimeout(() => {
+        content.style.height = '110px'
+    }, 600);
     axios.post('/get-data' , { searchData : e.target[0].value})
     .then((res) => { 
         let keyValue = Object.keys(res.data)
@@ -69,7 +73,8 @@ document.addEventListener('submit' , ( e )  =>{
     .catch(() => {
         content.style.animation = 'loaderClose 0.6s linear'
         setTimeout(() => {
-            content.style.display = 'none'    
+            content.style.display = 'none'   
+            content.style.animation = ''
         }, 600);
         alert('Invalid Coin , Please Check Your Information')
     })
